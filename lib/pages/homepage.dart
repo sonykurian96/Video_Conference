@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_conference/pages/joinWithCode.dart';
+import 'package:video_conference/pages/new_meeting.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +17,9 @@ class HomePage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 40, 0, 0),
           child: ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(NewMeeting());
+            },
             icon: Icon(Icons.add),
             label: Text("New Meeting"),
             style: ElevatedButton.styleFrom(
