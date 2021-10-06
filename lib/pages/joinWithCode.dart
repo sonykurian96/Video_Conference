@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:video_conference/video_call.dart';
 
 class JoinWithCode extends StatelessWidget {
- 
   TextEditingController _controller = TextEditingController();
 
   @override
@@ -34,20 +34,21 @@ class JoinWithCode extends StatelessWidget {
               child: Card(
                 color: Colors.grey[300],
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-              ),
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: TextField(
                   controller: _controller,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Example : abc-efg-dhi"
-                  ),
+                      border: InputBorder.none,
+                      hintText: "Example : abc-efg-dhi"),
                 ),
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(VideoCall(channelName: _controller.text.trim()));
+              },
               child: Text("Join"),
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(50, 30),
